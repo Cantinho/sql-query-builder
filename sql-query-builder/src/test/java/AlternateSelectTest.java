@@ -2,6 +2,9 @@ import br.com.cantinhoinc.sqlquerybuilder.builder.AlternateSelectBuilder;
 import br.com.cantinhoinc.sqlquerybuilder.builder.Condition;
 import br.com.cantinhoinc.sqlquerybuilder.builder.Join;
 import br.com.cantinhoinc.sqlquerybuilder.builder.Point;
+import models.Product;
+import models.ProductPriceGreaterThanCondition;
+import models.ProductPriceLessThanCondition;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -61,15 +64,85 @@ public class AlternateSelectTest {
      */
     @Test
     public void testSelect1() {
-        final String SELECT_ALL_FROM_TABLE = "SELECT * FROM Product";
+        final String QUERY = "SELECT * FROM Product";
         AlternateSelectBuilder builder = new AlternateSelectBuilder();
 
         String query = builder
                 .select()
-                .from(tables)
+                .from(Product.class)
                 .build();
 
-        Assert.assertEquals(BASE_TEST_QUERY, query);
+        Assert.assertEquals(QUERY, query);
+    }
+
+    /**
+     * Builds a select code, name, price from a table.
+     */
+    @Test
+    public void testSelect2() {
+        final String QUERY = "SELECT code, name, price FROM Product";
+        AlternateSelectBuilder builder = new AlternateSelectBuilder();
+
+        String query = builder
+                .select(Product.class)
+                .from(Product.class)
+                .build();
+
+        Assert.assertEquals(QUERY, query);
+    }
+
+    /**
+     * Builds a select code, name, price from a table where price is greater than 1000.0.
+     */
+    @Test
+    public void testSelect3() {
+        final String QUERY = "SELECT code, name, price FROM Product WHERE price > 1000.0";
+        AlternateSelectBuilder builder = new AlternateSelectBuilder();
+
+
+        String query = builder
+                .select(Product.class)
+                .from(Product.class)
+                .where(new ProductPriceGreaterThanCondition(1000.0))
+                .build();
+
+        Assert.assertEquals(QUERY, query);
+    }
+
+    /**
+     * Builds a select code, name, price from a table where price is less than 1000.0.
+     */
+    @Test
+    public void testSelect4() {
+        final String QUERY = "SELECT code, name, price FROM Product WHERE price < 1000.0";
+        AlternateSelectBuilder builder = new AlternateSelectBuilder();
+
+
+        String query = builder
+                .select(Product.class)
+                .from(Product.class)
+                .where(new ProductPriceLessThanCondition(1000.0))
+                .build();
+
+        Assert.assertEquals(QUERY, query);
+    }
+
+    /**
+     * Builds a select code, name, price from a table where price is less than 1000.0.
+     */
+    @Test
+    public void testSelect5() {
+        final String QUERY = "SELECT code, name, price FROM Product WHERE price >= 1000.0";
+        AlternateSelectBuilder builder = new AlternateSelectBuilder();
+
+
+        String query = builder
+                .select(Product.class)
+                .from(Product.class)
+                .where(new ProductPriceLessThanCondition(1000.0))
+                .build();
+
+        Assert.assertEquals(QUERY, query);
     }
 
     @Test

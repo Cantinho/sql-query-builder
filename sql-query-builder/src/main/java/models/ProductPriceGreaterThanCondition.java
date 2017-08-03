@@ -1,6 +1,7 @@
 package models;
 
 import br.com.cantinhoinc.sqlquerybuilder.annotation.Column;
+import br.com.cantinhoinc.sqlquerybuilder.annotation.Condition;
 import br.com.cantinhoinc.sqlquerybuilder.annotation.Key;
 
 /**
@@ -28,16 +29,15 @@ import br.com.cantinhoinc.sqlquerybuilder.annotation.Key;
  * directory of this distribution.
  *
  */
-public class Product {
 
-    @Key
-    @Column("code")
-    Integer code;
+public class ProductPriceGreaterThanCondition {
 
-    @Column("name")
-    String name;
-
+    @Condition("GT")
     @Column("price")
     Double price;
+
+    public ProductPriceGreaterThanCondition(Double price) {
+        this.price = price;
+    }
 
 }

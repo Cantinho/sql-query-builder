@@ -1,7 +1,7 @@
 package models;
 
 import br.com.cantinhoinc.sqlquerybuilder.annotation.Column;
-import br.com.cantinhoinc.sqlquerybuilder.annotation.Key;
+import br.com.cantinhoinc.sqlquerybuilder.annotation.Condition;
 
 /**
  * Copyright 2016 Cantinho. All Rights Reserved.
@@ -28,16 +28,14 @@ import br.com.cantinhoinc.sqlquerybuilder.annotation.Key;
  * directory of this distribution.
  *
  */
-public class Product {
 
-    @Key
-    @Column("code")
-    Integer code;
+public class ProductPriceLessThanCondition {
 
-    @Column("name")
-    String name;
-
+    @Condition("LT")
     @Column("price")
     Double price;
 
+    public ProductPriceLessThanCondition(Double price) {
+        this.price = price;
+    }
 }

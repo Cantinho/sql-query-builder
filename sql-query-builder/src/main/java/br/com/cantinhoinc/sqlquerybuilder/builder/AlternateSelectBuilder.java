@@ -1,5 +1,7 @@
 package br.com.cantinhoinc.sqlquerybuilder.builder;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 /**
  * Copyright 2016 Cantinho. All Rights Reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
@@ -38,6 +40,10 @@ public class AlternateSelectBuilder {
     private String[] operators;
 
 
+    public AlternateSelectBuilder select(final Class clazz) {
+        throw new NotImplementedException();
+    }
+
     public AlternateSelectBuilder select(final String... columns) {
         this.columns = columns;
         return this;
@@ -46,6 +52,10 @@ public class AlternateSelectBuilder {
     public AlternateSelectBuilder select() {
         this.columns = new String[]{};
         return this;
+    }
+
+    public AlternateSelectBuilder from(final Class clazz) {
+        throw new NotImplementedException();
     }
 
     public AlternateSelectBuilder from(final String... tables) {
@@ -76,6 +86,10 @@ public class AlternateSelectBuilder {
 //        this.operators = operators;
 //        return this;
 //    }
+
+    public AlternateSelectBuilder where(Object obj) {
+        throw new NotImplementedException();
+    }
 
     public AlternateSelectBuilder where(Condition condition) {
         if (tables == null) {

@@ -1,22 +1,32 @@
-# Compiled class file
-*.class
+sql-query-builder/target/
+sql-query-builder/.DS_Store
+sql-query-builder/mvnw*
+sql-query-builder/.mvn/
+sql-query-builder/activeWS_log.txt
 
-# Log file
-*.log
+### STS ###
+sql-query-builder/.classpath
+sql-query-builder/.factorypath
+sql-query-builder/.project
+sql-query-builder/.settings
+sql-query-builder/.springBeans
 
-# BlueJ files
-*.ctxt
+### IntelliJ IDEA ###
+sql-query-builder/.idea
+sql-query-builder/*.iws
+sql-query-builder/*.iml
+sql-query-builder/*.ipr
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+### NetBeans ###
+sql-query-builder/nbproject/private/
+sql-query-builder/build/
+sql-query-builder/nbbuild/
+sql-query-builder/dist/
+sql-query-builder/nbdist/
+sql-query-builder/.nb-gradle/
+sql-query-builder/mvnw
+sql-query-builder/mvnw.cmd
 
-# Package Files #
-*.jar
-*.war
-*.ear
-*.zip
-*.tar.gz
-*.rar
+## so preu comitar de boas ##
+sql-query-builder/MainPOCGCM.java
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*

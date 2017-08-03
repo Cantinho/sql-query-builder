@@ -1,9 +1,7 @@
-package br.com.cantinhoinc.sqlquerybuilder.annotation;
+package models;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import br.com.cantinhoinc.sqlquerybuilder.annotation.Column;
+import br.com.cantinhoinc.sqlquerybuilder.annotation.Key;
 
 /**
  * Copyright 2016 Cantinho. All Rights Reserved.
@@ -30,9 +28,16 @@ import java.lang.annotation.Target;
  * directory of this distribution.
  *
  */
-@Target({ElementType.FIELD})
-@Retention(RetentionPolicy.RUNTIME)
-public @interface Column {
+class Product {
 
-    String value();
+    @Key
+    @Column("code")
+    Integer code;
+
+    @Column("name")
+    String name;
+
+    @Column("price")
+    Double price;
+
 }
